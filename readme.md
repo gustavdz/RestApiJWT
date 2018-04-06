@@ -59,7 +59,9 @@ Install Laravel Cors to resolve CORS problem with this command
 "composer require barryvdh/laravel-cors" Doc at (http://www.laravelinterviewquestions.com/2017/12/cross-origin-request-blocked-error-laravel.html#sthash.kzFyS0ZT.IJiK7A5h.dpbs)
 
 Install JWT Authentication to use JSON Web Token to authenticate this RESTAPI with this command 
-"composer require tymon/jwt-auth" Doc at (https://arjunphp.com/laravel-5-6-rest-api-jwt-authentication/)
+"composer require tymon/jwt-auth" or for Laravel >= 5.5 "composer require tymon/jwt-auth:dev-develop --prefer-source" (0.5.*) or create the 
+function handle in the  JWTGenerateCommand file: public function handle() { $this->fire(); } 
+Doc at (https://arjunphp.com/laravel-5-6-rest-api-jwt-authentication/)
 
 
 
