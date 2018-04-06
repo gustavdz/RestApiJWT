@@ -63,6 +63,10 @@ Install JWT Authentication to use JSON Web Token to authenticate this RESTAPI wi
 function handle in the  JWTGenerateCommand file: public function handle() { $this->fire(); } 
 Doc at (https://arjunphp.com/laravel-5-6-rest-api-jwt-authentication/)
 
+## The Database
+
+We need to create the .env file, we have an example in this repository.
+To create the database with the Laravel ORM we need to run this commando on a terminal in the project directory: "php artisan migrate"
 
 
 ## License
