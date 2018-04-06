@@ -12,17 +12,19 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::middleware('cors')->group(function(){
+    Route::post('signup', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
 
-Route::post('signup', 'AuthController@register');
-Route::post('login', 'AuthController@login');
 
+    Route::middleware(['jwt.auth'])->group(function(){
+        Route::get('auth/user', 'AuthController@user');
+        Route::post('auth/logout', 'AuthController@logout');
+    });
 
-Route::middleware(['jwt.auth'])->group(function(){
-    Route::get('auth/user', 'AuthController@user');
-    Route::post('auth/logout', 'AuthController@logout');
+    Route::middleware('jwt.refresh')->group(function(){
+        Route::get('/token/refresh', 'AuthController@refresh');
+    });
 });
 
-Route::middleware('jwt.refresh')->group(function(){
-    Route::get('/token/refresh', 'AuthController@refresh');
-});
 
